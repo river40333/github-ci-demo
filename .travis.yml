@@ -4,4 +4,4 @@ cache: npm
 install: 
   - npm install
 script:
-  - npm start
+  - npm lint 

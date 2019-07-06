@@ -2,7 +2,7 @@
 matrix:
   include:
     - language: python
-      python: 3.7
+      python: 3.6
       install:
         - pip install pep8
         - pip install flake8

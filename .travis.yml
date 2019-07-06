@@ -3,11 +3,13 @@ matrix:
   include:
     - language: python
       python: 3.6
+      cache: pip
       install:
         - pip install pycodestyle 
         - pip install flake8
       before_script:
         - "pycodestyle --exclude=migrations --ignore=E123,E133,E226,E241,E242,E402,E501,W503 ./"
+      script:
         - "flake8 --exclude=migrations --ignore=E123,E133,E226,E241,E242,E402,E501,W503 ./"
 
     - language: node_js

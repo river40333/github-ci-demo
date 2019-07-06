@@ -1,7 +1,19 @@
-language: node_js
-node_js: "10"
-cache: npm
-install: 
-  - npm install
-script:
-  - npm run lint 
+
+matrix:
+  include:
+    - language: python
+      python: 3.7
+      install:
+        - pip install pep8
+        - pip install flake8
+      before_script:
+        - "pep8 --exclude=migrations --ignore=E123,E133,E226,E241,E242,E402,E501,W503 ./"
+        - "flake8 --exclude=migrations --ignore=E123,E133,E226,E241,E242,E402,E501,W503 ./"
+
+    - language: node_js
+      node_js: "10"
+      cache: npm
+      install: 
+        - npm install
+      script:
+        - npm run lint 
